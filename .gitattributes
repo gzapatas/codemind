@@ -1,0 +1,5 @@
+# Forzar que todos los archivos de texto usen LF (estilo Linux/Go)
+* text=auto eol=lf
+
+# Excepto archivos de Windows si los tuvieras
+*.bat text eol=crlf

@@ -12,6 +12,7 @@ import (
 func newOllamaCmd() *cobra.Command {
 	var baseURL string
 	cmd := &cobra.Command{
+
 		Use:     "oc",
 		Aliases: []string{"ollama"},
 		Short:   "Check Ollama connectivity and list available models",
