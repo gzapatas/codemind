@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/codemind/project/internal/ollama"
+	"github.com/gzapatas/codemind/internal/ollama"
 	"github.com/spf13/cobra"
 )
 

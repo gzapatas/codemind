@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 
-	"github.com/codemind/project/internal/ingestion"
+	"github.com/gzapatas/codemind/internal/ingestion"
 	"github.com/spf13/cobra"
 )
 
 func newChunkCmd() *cobra.Command {
 	var file string
-	var lang string
 	cmd := &cobra.Command{
 		Use:   "chunk",
 		Short: "Chunk a source file using AST chunker (tree-sitter)",
@@ -23,6 +23,9 @@ func newChunkCmd() *cobra.Command {
 			if err != nil {
 				return err
 			}
+
+			lang := strings.ToLower(filepath.Ext(file))
+			lang = strings.TrimPrefix(lang, ".")
 			chunks, err := ingestion.ChunkFile(b, lang)
 			if err != nil {
 				return err
@@ -38,6 +41,6 @@ func newChunkCmd() *cobra.Command {
 		},
 	}
 	cmd.Flags().StringVar(&file, "file", "", "Path to source file to chunk")
-	cmd.Flags().StringVar(&lang, "lang", "go", "Language of the source file (default: go)")
+
 	return cmd
 }

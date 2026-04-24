@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/codemind/project/cmd"
+	"github.com/gzapatas/codemind/cmd"
 )
 
 func main() {
